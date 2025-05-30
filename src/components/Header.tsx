@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, Menu, X, Phone, Mail } from 'lucide-react';
@@ -16,7 +17,6 @@ import {
 } from '@/components/ui/dropdown-menu';
 import CartSidebar from './CartSidebar';
 import { useCart } from '@/hooks/useCart';
-import WhatsAppButton from './WhatsAppButton';
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -56,33 +56,34 @@ const Header = () => {
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center space-x-2">
+            <div className="hidden lg:flex items-center space-x-1">
               <NavigationMenu>
                 <NavigationMenuList className="space-x-1">
                   {/* Company Registration */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 enhanced-contrast-dark">
+                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 hover:text-blue-600">
                       Company Registration
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[280px] p-4">
+                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[300px] p-4">
                       <div className="space-y-2">
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Private Limited Company</a>
-                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Limited Liability Partnership</a>
-                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">One Person Company</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Limited Liability Partnership (LLP)</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">One Person Company (OPC)</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Partnership Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Proprietorship Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Section 8 Company</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Producer Company</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Nidhi Company</a>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* Trademark */}
+                  {/* Trademark & IP */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 enhanced-contrast-dark">
-                      Trademark
+                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 hover:text-blue-600">
+                      Trademark & IP
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[280px] p-4">
+                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[300px] p-4">
                       <div className="space-y-2">
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Trademark Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Trademark Search</a>
@@ -91,16 +92,17 @@ const Header = () => {
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Copyright Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Design Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Patent Registration</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Patent Search</a>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* GST */}
+                  {/* GST & Tax */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 enhanced-contrast-dark">
-                      GST
+                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 hover:text-blue-600">
+                      GST & Tax
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[280px] p-4">
+                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[300px] p-4">
                       <div className="space-y-2">
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">GST Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">GST Return Filing</a>
@@ -109,38 +111,42 @@ const Header = () => {
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Input Tax Credit</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">GST Notice Reply</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">E-way Bill</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Income Tax Filing</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">TDS Return Filing</a>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  {/* Other Services */}
+                  {/* Licenses & Registrations */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 enhanced-contrast-dark">
-                      Other Services
+                    <NavigationMenuTrigger className="text-sm font-medium px-3 py-2 hover:text-blue-600">
+                      Licenses
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[280px] p-4">
+                    <NavigationMenuContent className="bg-white border shadow-lg z-[1000] min-w-[300px] p-4">
                       <div className="space-y-2">
-                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Income Tax Filing</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">FSSAI Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">ISO Certification</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Digital Signature</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">MSME Registration</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Labour License</a>
                         <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Import Export Code</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">Drug License</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">EPF Registration</a>
+                        <a href="#" className="block px-3 py-2 text-sm hover:bg-gray-100 rounded">ESI Registration</a>
                       </div>
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
                   {/* About Us */}
                   <NavigationMenuItem>
-                    <a href="#" className="text-sm font-medium px-3 py-2 hover:text-blue-600 enhanced-contrast-dark">
+                    <a href="#" className="text-sm font-medium px-3 py-2 hover:text-blue-600">
                       About Us
                     </a>
                   </NavigationMenuItem>
 
                   {/* Contact */}
                   <NavigationMenuItem>
-                    <a href="#" className="text-sm font-medium px-3 py-2 hover:text-blue-600 enhanced-contrast-dark">
+                    <a href="#" className="text-sm font-medium px-3 py-2 hover:text-blue-600">
                       Contact
                     </a>
                   </NavigationMenuItem>
@@ -196,13 +202,12 @@ const Header = () => {
 
                 <DropdownMenu>
                   <DropdownMenuTrigger className="w-full text-left px-3 py-2 text-sm font-medium hover:bg-gray-100 rounded">
-                    Trademark
+                    Trademark & IP
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-full bg-white border shadow-lg">
                     <DropdownMenuItem>Trademark Registration</DropdownMenuItem>
                     <DropdownMenuItem>Trademark Search</DropdownMenuItem>
                     <DropdownMenuItem>Trademark Renewal</DropdownMenuItem>
-                    <DropdownMenuItem>Trademark Opposition</DropdownMenuItem>
                     <DropdownMenuItem>Copyright Registration</DropdownMenuItem>
                     <DropdownMenuItem>Design Registration</DropdownMenuItem>
                     <DropdownMenuItem>Patent Registration</DropdownMenuItem>
@@ -211,25 +216,21 @@ const Header = () => {
 
                 <DropdownMenu>
                   <DropdownMenuTrigger className="w-full text-left px-3 py-2 text-sm font-medium hover:bg-gray-100 rounded">
-                    GST
+                    GST & Tax
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-full bg-white border shadow-lg">
                     <DropdownMenuItem>GST Registration</DropdownMenuItem>
                     <DropdownMenuItem>GST Return Filing</DropdownMenuItem>
-                    <DropdownMenuItem>GST Annual Return</DropdownMenuItem>
-                    <DropdownMenuItem>GST Cancellation</DropdownMenuItem>
-                    <DropdownMenuItem>Input Tax Credit</DropdownMenuItem>
-                    <DropdownMenuItem>GST Notice Reply</DropdownMenuItem>
-                    <DropdownMenuItem>E-way Bill</DropdownMenuItem>
+                    <DropdownMenuItem>Income Tax Filing</DropdownMenuItem>
+                    <DropdownMenuItem>TDS Return Filing</DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
 
                 <DropdownMenu>
                   <DropdownMenuTrigger className="w-full text-left px-3 py-2 text-sm font-medium hover:bg-gray-100 rounded">
-                    Other Services
+                    Licenses
                   </DropdownMenuTrigger>
                   <DropdownMenuContent className="w-full bg-white border shadow-lg">
-                    <DropdownMenuItem>Income Tax Filing</DropdownMenuItem>
                     <DropdownMenuItem>FSSAI Registration</DropdownMenuItem>
                     <DropdownMenuItem>ISO Certification</DropdownMenuItem>
                     <DropdownMenuItem>Digital Signature</DropdownMenuItem>
@@ -248,7 +249,6 @@ const Header = () => {
       </header>
 
       <CartSidebar isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
-      <WhatsAppButton />
     </>
   );
 };
