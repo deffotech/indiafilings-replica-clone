@@ -113,6 +113,7 @@
   .enhanced-contrast-dark {
     color: #1a202c;
     text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+    font-weight: 500;
   }
 
   .service-card-hover {
@@ -130,6 +131,24 @@
 
   .button-glow:hover {
     box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+  }
+
+  /* Mobile responsive adjustments */
+  @media (max-width: 640px) {
+    .hero-gradient {
+      padding: 1rem;
+    }
+    
+    .service-card-hover {
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Tablet responsive adjustments */
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .service-card-hover {
+      padding: 1.5rem;
+    }
   }
 }
 
@@ -165,4 +184,50 @@
 .enhanced-card:hover {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border-color: #3b82f6;
+}
+
+/* Navigation menu improvements */
+.radix-navigation-menu-trigger {
+  white-space: nowrap;
+  font-weight: 500 !important;
+  color: #1a202c !important;
+}
+
+.radix-navigation-menu-trigger:hover {
+  color: #3b82f6 !important;
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 1023px) {
+  .radix-dropdown-menu-content {
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+    z-index: 1000 !important;
+  }
+}
+
+/* Responsive text sizing */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 1.5rem !important;
+  }
+  
+  h2 {
+    font-size: 1.875rem !important;
+  }
+  
+  h3 {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  h1 {
+    font-size: 1.875rem !important;
+  }
+  
+  h2 {
+    font-size: 2.25rem !important;
+  }
 }
