@@ -1,150 +1,145 @@
 
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  Building2, 
-  FileText, 
-  Shield, 
-  Calculator, 
-  Briefcase, 
-  Globe,
-  ArrowRight,
-  TrendingUp
-} from 'lucide-react';
+import { ShoppingCart, Building, FileText, Shield, Calculator, Users, Globe } from 'lucide-react';
+import { useCart } from '@/hooks/useCart';
 
 const ServicesSection = () => {
+  const { addItem } = useCart();
+
   const services = [
     {
-      icon: Building2,
-      title: "Company Registration",
-      description: "Register your Private Limited Company, LLP, OPC, or Partnership firm",
-      price: "Starting ₹6,999",
-      features: ["Digital Process", "Expert Support", "Quick Turnaround"],
-      color: "bg-blue-500"
+      id: 'private-limited',
+      icon: Building,
+      title: 'Private Limited Company',
+      description: 'Start your business with limited liability protection and credibility.',
+      price: 6999,
+      features: ['Name Approval', 'Digital Signature', 'Company Incorporation', 'PAN & TAN'],
+      popular: true,
     },
     {
+      id: 'gst-registration',
       icon: FileText,
-      title: "Compliance Services",
-      description: "Annual filings, board meetings, and statutory compliance management",
-      price: "Starting ₹2,999",
-      features: ["Automated Reminders", "Expert Filing", "100% Compliance"],
-      color: "bg-green-500"
+      title: 'GST Registration',
+      description: 'Get GST registration to sell your products and services legally.',
+      price: 2999,
+      features: ['GST Number', 'GST Certificate', 'Return Filing Support', 'Expert Guidance'],
     },
     {
+      id: 'trademark',
       icon: Shield,
-      title: "Trademark Registration",
-      description: "Protect your brand with trademark registration and IP services",
-      price: "Starting ₹9,999",
-      features: ["Brand Protection", "Legal Support", "Fast Processing"],
-      color: "bg-purple-500"
+      title: 'Trademark Registration',
+      description: 'Protect your brand name and logo with trademark registration.',
+      price: 4999,
+      features: ['Trademark Search', 'Application Filing', 'Government Fees', 'Expert Support'],
     },
     {
+      id: 'income-tax',
       icon: Calculator,
-      title: "Tax Filing",
-      description: "Income tax filing, GST registration and returns for individuals and businesses",
-      price: "Starting ₹1,499",
-      features: ["Expert CAs", "Maximum Refund", "Error-Free Filing"],
-      color: "bg-orange-500"
+      title: 'Income Tax Filing',
+      description: 'File your income tax returns with expert assistance.',
+      price: 1999,
+      features: ['Tax Calculation', 'Form Preparation', 'E-filing', 'Expert Review'],
     },
     {
-      icon: Briefcase,
-      title: "Business Licenses",
-      description: "Get all required business licenses and permits for your industry",
-      price: "Starting ₹4,999",
-      features: ["Industry Specific", "End-to-End Service", "Expert Guidance"],
-      color: "bg-teal-500"
+      id: 'partnership',
+      icon: Users,
+      title: 'Partnership Registration',
+      description: 'Register your partnership firm and formalize your business.',
+      price: 3999,
+      features: ['Partnership Deed', 'Registration Certificate', 'PAN Application', 'Bank Account'],
     },
     {
+      id: 'fssai',
       icon: Globe,
-      title: "Import Export License",
-      description: "IEC code registration and export-import documentation services",
-      price: "Starting ₹3,999",
-      features: ["IEC Registration", "Documentation", "Trade Support"],
-      color: "bg-indigo-500"
-    }
+      title: 'FSSAI Registration',
+      description: 'Get food license to start your food business legally.',
+      price: 2499,
+      features: ['FSSAI License', 'Certificate', 'Compliance Support', 'Renewal Assistance'],
+    },
   ];
 
+  const handleAddToCart = (service: any) => {
+    addItem({
+      id: service.id,
+      name: service.title,
+      description: service.description,
+      price: service.price,
+    });
+  };
+
   return (
-    <section className="py-16 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section className="py-20 px-4 bg-gray-50">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Complete Business Solutions
+            Popular Business Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From company registration to ongoing compliance, we provide end-to-end business services 
-            to help you focus on growing your business.
+            Choose from our most popular services to start, manage, and grow your business with expert guidance.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {services.map((service, index) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service) => {
             const IconComponent = service.icon;
             return (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
-                <CardHeader className="pb-4">
-                  <div className={`w-12 h-12 ${service.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <IconComponent className="w-6 h-6 text-white" />
+              <div
+                key={service.id}
+                className={`bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow relative ${
+                  service.popular ? 'ring-2 ring-blue-500' : ''
+                }`}
+              >
+                {service.popular && (
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">
+                      Most Popular
+                    </span>
                   </div>
-                  <CardTitle className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                    {service.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <p className="text-gray-600">
-                    {service.description}
-                  </p>
-                  
-                  <div className="space-y-2">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-center space-x-2 text-sm text-gray-500">
-                        <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
-                        <span>{feature}</span>
-                      </div>
-                    ))}
+                )}
+                
+                <div className="flex items-center mb-6">
+                  <div className="bg-blue-100 p-3 rounded-lg mr-4">
+                    <IconComponent className="w-8 h-8 text-blue-600" />
                   </div>
-                  
-                  <div className="border-t pt-4">
-                    <div className="flex items-center justify-between">
-                      <div className="text-2xl font-bold text-blue-600">
-                        {service.price}
-                      </div>
-                      <Button className="group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        Get Started
-                        <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-gray-900">{service.title}</h3>
+                    <p className="text-2xl font-bold text-blue-600">₹{service.price}</p>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+
+                <p className="text-gray-600 mb-6">{service.description}</p>
+
+                <ul className="space-y-2 mb-8">
+                  {service.features.map((feature, index) => (
+                    <li key={index} className="flex items-center text-sm text-gray-700">
+                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="space-y-3">
+                  <Button 
+                    className="w-full gradient-bg text-white hover:opacity-90"
+                    onClick={() => handleAddToCart(service)}
+                  >
+                    <ShoppingCart className="w-4 h-4 mr-2" />
+                    Add to Cart
+                  </Button>
+                  <Button variant="outline" className="w-full border-blue-600 text-blue-600">
+                    Learn More
+                  </Button>
+                </div>
+              </div>
             );
           })}
         </div>
 
-        {/* Stats Section */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { number: "5L+", label: "Companies Registered", icon: Building2 },
-              { number: "50K+", label: "Happy Customers", icon: TrendingUp },
-              { number: "15+", label: "Years Experience", icon: Shield },
-              { number: "99%", label: "Success Rate", icon: Calculator }
-            ].map((stat, index) => {
-              const IconComponent = stat.icon;
-              return (
-                <div key={index} className="text-center">
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-                    <IconComponent className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.number}</div>
-                  <div className="text-gray-600">{stat.label}</div>
-                </div>
-              );
-            })}
-          </div>
+        <div className="text-center mt-12">
+          <Button className="gradient-bg text-white text-lg px-8 py-3">
+            View All Services
+          </Button>
         </div>
       </div>
     </section>
