@@ -12,12 +12,6 @@ interface CartSidebarProps {
 const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
   const { items, removeItem, updateQuantity, total, clearCart } = useCart();
 
-  const handleCheckout = () => {
-    if (items.length > 0) {
-      window.location.href = '/payment';
-    }
-  };
-
   if (!isOpen) return null;
 
   return (
@@ -27,7 +21,7 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b">
-            <h2 className="text-lg font-semibold">Shopping Cart ({items.length})</h2>
+            <h2 className="text-lg font-semibold">Shopping Cart</h2>
             <button onClick={onClose} className="p-2 hover:bg-gray-100 rounded-full">
               <X className="w-5 h-5" />
             </button>
@@ -46,7 +40,7 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                   <div key={item.id} className="flex items-center space-x-4 p-4 border rounded-lg">
                     <div className="flex-1">
                       <h3 className="font-medium">{item.name}</h3>
-                      <p className="text-sm text-gray-600 line-clamp-2">{item.description}</p>
+                      <p className="text-sm text-gray-600">{item.description}</p>
                       <p className="font-semibold text-blue-600">₹{item.price}</p>
                     </div>
                     <div className="flex items-center space-x-2">
@@ -85,10 +79,7 @@ const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                   Clear Cart
                 </Button>
               </div>
-              <Button 
-                className="w-full gradient-bg text-white"
-                onClick={handleCheckout}
-              >
+              <Button className="w-full gradient-bg text-white">
                 Proceed to Checkout
               </Button>
             </div>
