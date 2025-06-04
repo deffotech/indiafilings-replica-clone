@@ -37,29 +37,79 @@ const CompanyRegistrationPage = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Left Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 space-y-6">
+            {/* Cart Section */}
+            <Card>
+              <CardContent className="p-6">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <ShoppingCart className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">Your cart is empty</h3>
+                  <p className="text-gray-600 text-sm">Browse our services and add some services in cart!</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <div className="text-right mb-4">
+                    <span className="text-sm text-gray-600">Existing User? </span>
+                    <Button variant="link" className="text-green-600 p-0">Login</Button>
+                  </div>
+
+                  <div className="space-y-4 mb-4">
+                    <Input placeholder="Name" />
+                    <Input placeholder="Email" type="email" />
+                    <div className="flex">
+                      <Select>
+                        <SelectTrigger className="w-20">
+                          <SelectValue placeholder="+91" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="+91">+91</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <Input placeholder="Phone" className="ml-2" />
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-gray-500 mb-4">
+                    Enter OTP to get 18% GST Credit
+                  </p>
+
+                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                    Get Started
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Related Guides Section */}
             <div className="bg-white rounded-lg p-6 shadow-sm">
-              <div className="mb-6">
-                <img 
-                  src="/lovable-uploads/b132edba-e6a4-4387-b25a-b8f0fdf97bb6.png" 
-                  alt="Start a Business" 
-                  className="w-full rounded-lg"
-                />
-              </div>
-              
-              <div className="space-y-4">
-                <div className="text-sm text-gray-600">PAN Card</div>
-                <div className="text-sm text-gray-600">Passport (Foreign Nationals Only)</div>
-                <div className="text-sm text-gray-600">Aadhaar Card</div>
-                <Button variant="link" className="text-blue-600 p-0 text-sm">
-                  Load More
-                </Button>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Related Guides</h3>
+              <div className="space-y-3">
+                <a href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                  Proprietorship Registration & Comprehensive Guide for Entrepreneurs
+                </a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                  Difference between One Person Company and Sole Proprietorship
+                </a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                  What is meant by a proprietorship firm?
+                </a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                  What are the types of proprietorship?
+                </a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                  GST Registration for Proprietorship
+                </a>
+                <a href="#" className="block text-blue-600 hover:text-blue-800 text-sm">
+                  Comparison of Proprietorship into Private Limited
+                </a>
               </div>
             </div>
           </div>
 
           {/* Main Content */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-3">
             <div className="bg-white rounded-lg p-6 shadow-sm">
               <div className="mb-6">
                 <h1 className="text-2xl font-bold text-gray-900 mb-2">Company Registration</h1>
@@ -181,33 +231,6 @@ const CompanyRegistrationPage = () => {
                 </Card>
               </div>
             </div>
-          </div>
-
-          {/* Right Sidebar - Cart */}
-          <div className="lg:col-span-1">
-            <Card className="sticky top-4">
-              <CardContent className="p-6">
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ShoppingCart className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">Your cart is empty</h3>
-                  <p className="text-gray-600 text-sm">Browse our services and add some services in cart!</p>
-                </div>
-
-                <div className="border-t pt-6">
-                  <div className="text-right mb-4">
-                    <span className="text-sm text-gray-600">Existing User? </span>
-                    <Button variant="link" className="text-green-600 p-0">Login</Button>
-                  </div>
-
-                  <div className="space-y-4">
-                    <Input placeholder="Name" />
-                    <Input placeholder="Email" type="email" />
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
