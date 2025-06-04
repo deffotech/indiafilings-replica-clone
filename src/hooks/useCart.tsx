@@ -1,5 +1,6 @@
 
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import { useToast } from '@/hooks/use-toast';
 
 export interface CartItem {
   id: string;
@@ -94,13 +95,22 @@ const CartContext = createContext<{
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(cartReducer, { items: [], total: 0 });
+  const { toast } = useToast();
 
   const addItem = (item: Omit<CartItem, 'quantity'>) => {
     dispatch({ type: 'ADD_ITEM', payload: item });
+    toast({
+      title: "Added to cart",
+      description: `${item.name} has been added to your cart.`,
+    });
   };
 
   const removeItem = (id: string) => {
     dispatch({ type: 'REMOVE_ITEM', payload: id });
+    toast({
+      title: "Removed from cart",
+      description: "Item has been removed from your cart.",
+    });
   };
 
   const updateQuantity = (id: string, quantity: number) => {
@@ -109,6 +119,10 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
+    toast({
+      title: "Cart cleared",
+      description: "All items have been removed from your cart.",
+    });
   };
 
   return (
