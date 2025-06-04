@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import CompanyRegistrationPage from '@/components/CompanyRegistrationPage';
 import OffersSection from '@/components/OffersSection';
+import CompanyInfoSection from '@/components/CompanyInfoSection';
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Header />
       <CompanyRegistrationPage />
       <OffersSection />
+      <CompanyInfoSection />
       <Footer />
       <WhatsAppButton />
     </div>
