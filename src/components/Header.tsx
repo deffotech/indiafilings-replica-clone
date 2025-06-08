@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -26,192 +25,192 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <div className="text-2xl font-bold">
-                  <span className="text-orange-500">India</span>
-                  <span className="text-blue-600">Filings</span>
-                </div>
+            <div className="flex items-center flex-shrink-0 min-w-0">
+              <div className="text-2xl font-bold whitespace-nowrap">
+                <span className="text-orange-500">India</span>
+                <span className="text-blue-600">Filings</span>
               </div>
             </div>
 
-            {/* Desktop Navigation */}
-            <NavigationMenu className="hidden lg:flex">
-              <NavigationMenuList className="flex space-x-1">
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Startup
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Business Plan</div>
-                        <div className="text-sm text-gray-600">Create a comprehensive business plan</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Startup India Registration</div>
-                        <div className="text-sm text-gray-600">Register under Startup India scheme</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+            {/* Desktop Navigation - Centered with proper spacing */}
+            <div className="hidden lg:flex flex-1 justify-center px-8">
+              <NavigationMenu>
+                <NavigationMenuList className="flex items-center justify-center space-x-1">
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Startup
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px]">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Business Plan</div>
+                          <div className="text-sm text-gray-600">Create a comprehensive business plan</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Startup India Registration</div>
+                          <div className="text-sm text-gray-600">Register under Startup India scheme</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Registrations
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Private Limited Company</div>
-                        <div className="text-sm text-gray-600">Most popular business structure</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">LLP Registration</div>
-                        <div className="text-sm text-gray-600">Limited Liability Partnership</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">OPC Registration</div>
-                        <div className="text-sm text-gray-600">One Person Company</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Partnership Registration</div>
-                        <div className="text-sm text-gray-600">Partnership firm registration</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Section 8 Company</div>
-                        <div className="text-sm text-gray-600">Non-profit company registration</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Nidhi Company</div>
-                        <div className="text-sm text-gray-600">Mutual benefit society</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Registrations
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[500px] grid-cols-2">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Private Limited Company</div>
+                          <div className="text-sm text-gray-600">Most popular business structure</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">LLP Registration</div>
+                          <div className="text-sm text-gray-600">Limited Liability Partnership</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">OPC Registration</div>
+                          <div className="text-sm text-gray-600">One Person Company</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Partnership Registration</div>
+                          <div className="text-sm text-gray-600">Partnership firm registration</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Section 8 Company</div>
+                          <div className="text-sm text-gray-600">Non-profit company registration</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Nidhi Company</div>
+                          <div className="text-sm text-gray-600">Mutual benefit society</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Trademark
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Trademark Registration</div>
-                        <div className="text-sm text-gray-600">Protect your brand name and logo</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Trademark Search</div>
-                        <div className="text-sm text-gray-600">Check trademark availability</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Trademark Renewal</div>
-                        <div className="text-sm text-gray-600">Renew your existing trademark</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Trademark
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px]">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Trademark Registration</div>
+                          <div className="text-sm text-gray-600">Protect your brand name and logo</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Trademark Search</div>
+                          <div className="text-sm text-gray-600">Check trademark availability</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Trademark Renewal</div>
+                          <div className="text-sm text-gray-600">Renew your existing trademark</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Goods &amp; Services Tax
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">GST Registration</div>
-                        <div className="text-sm text-gray-600">Register for Goods and Services Tax</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">GST Return Filing</div>
-                        <div className="text-sm text-gray-600">File your GST returns</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">GST Cancellation</div>
-                        <div className="text-sm text-gray-600">Cancel GST registration</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Goods &amp; Services Tax
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px]">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">GST Registration</div>
+                          <div className="text-sm text-gray-600">Register for Goods and Services Tax</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">GST Return Filing</div>
+                          <div className="text-sm text-gray-600">File your GST returns</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">GST Cancellation</div>
+                          <div className="text-sm text-gray-600">Cancel GST registration</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Income Tax
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Income Tax Filing</div>
-                        <div className="text-sm text-gray-600">File your income tax returns</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">TDS Return Filing</div>
-                        <div className="text-sm text-gray-600">File TDS returns</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Income Tax
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px]">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Income Tax Filing</div>
+                          <div className="text-sm text-gray-600">File your income tax returns</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">TDS Return Filing</div>
+                          <div className="text-sm text-gray-600">File TDS returns</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    MCA
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Annual Filing</div>
-                        <div className="text-sm text-gray-600">File annual returns with MCA</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Director KYC</div>
-                        <div className="text-sm text-gray-600">Complete director KYC</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      MCA
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px]">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Annual Filing</div>
+                          <div className="text-sm text-gray-600">File annual returns with MCA</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Director KYC</div>
+                          <div className="text-sm text-gray-600">Complete director KYC</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Compliance
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid gap-3 p-6 w-[400px]">
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Legal Compliance</div>
-                        <div className="text-sm text-gray-600">Ensure legal compliance</div>
-                      </NavigationMenuLink>
-                      <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
-                        <div className="font-medium">Regulatory Compliance</div>
-                        <div className="text-sm text-gray-600">Meet regulatory requirements</div>
-                      </NavigationMenuLink>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Compliance
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="grid gap-3 p-6 w-[400px]">
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Legal Compliance</div>
+                          <div className="text-sm text-gray-600">Ensure legal compliance</div>
+                        </NavigationMenuLink>
+                        <NavigationMenuLink href="#" className="block p-3 hover:bg-gray-50 rounded-md">
+                          <div className="font-medium">Regulatory Compliance</div>
+                          <div className="text-sm text-gray-600">Meet regulatory requirements</div>
+                        </NavigationMenuLink>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Consultation
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Consultation
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    Guides
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      Guides
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
 
-                <NavigationMenuItem>
-                  <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2">
-                    About Us
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                      About Us
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" className="hidden md:flex">
-                <Search className="w-4 h-4 mr-2" />
+            <div className="flex items-center space-x-2 flex-shrink-0">
+              <Button variant="ghost" size="sm" className="hidden md:flex text-sm">
+                <Search className="w-4 h-4 mr-1" />
                 Search
               </Button>
               
@@ -227,7 +226,7 @@ const Header = () => {
                 )}
               </button>
 
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4">
                 Login
               </Button>
 
