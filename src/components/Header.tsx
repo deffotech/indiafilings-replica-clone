@@ -22,22 +22,22 @@ const Header = () => {
   return (
     <>
       <header className="bg-white shadow-sm border-b sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 max-w-[1400px] mx-auto">
             {/* Logo */}
-            <div className="flex items-center flex-shrink-0 min-w-0">
+            <div className="flex items-center flex-shrink-0">
               <div className="text-2xl font-bold whitespace-nowrap">
                 <span className="text-orange-500">India</span>
                 <span className="text-blue-600">Filings</span>
               </div>
             </div>
 
-            {/* Desktop Navigation - Centered with proper spacing */}
-            <div className="hidden lg:flex flex-1 justify-center px-8">
+            {/* Desktop Navigation - Properly centered with consistent spacing */}
+            <div className="hidden lg:flex flex-1 justify-center max-w-4xl mx-8">
               <NavigationMenu>
-                <NavigationMenuList className="flex items-center justify-center space-x-1">
+                <NavigationMenuList className="flex items-center justify-center space-x-6">
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Startup
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -55,7 +55,7 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Registrations
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -89,7 +89,7 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Trademark
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -111,7 +111,7 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Goods &amp; Services Tax
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -133,7 +133,7 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Income Tax
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -151,7 +151,7 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       MCA
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -169,7 +169,7 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Compliance
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -187,19 +187,19 @@ const Header = () => {
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Consultation
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       Guides
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-sm whitespace-nowrap">
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium whitespace-nowrap">
                       About Us
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -208,7 +208,7 @@ const Header = () => {
             </div>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-2 flex-shrink-0">
+            <div className="flex items-center space-x-3 flex-shrink-0">
               <Button variant="ghost" size="sm" className="hidden md:flex text-sm">
                 <Search className="w-4 h-4 mr-1" />
                 Search
