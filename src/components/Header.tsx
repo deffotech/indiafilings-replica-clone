@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { 
@@ -22,23 +21,23 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-white shadow-sm border-b sticky top-0 z-50 w-full overflow-hidden">
-        <div className="w-full max-w-full px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 max-w-[1400px] mx-auto min-w-0">
+      <header className="bg-white shadow-sm border-b sticky top-0 z-50 w-full">
+        <div className="w-full px-2">
+          <div className="flex justify-between items-center h-16 max-w-[1400px] mx-auto">
             {/* Logo */}
-            <div className="flex items-center flex-shrink-0 min-w-0">
-              <div className="text-xl lg:text-2xl font-bold whitespace-nowrap">
+            <div className="flex items-center flex-shrink-0 min-w-[120px]">
+              <div className="text-lg lg:text-xl font-bold whitespace-nowrap">
                 <span className="text-orange-500">India</span>
                 <span className="text-blue-600">Filings</span>
               </div>
             </div>
 
             {/* Desktop Navigation - Properly centered with consistent spacing */}
-            <div className="hidden lg:flex flex-1 justify-center min-w-0 mx-4 xl:mx-8">
-              <NavigationMenu className="max-w-full">
-                <NavigationMenuList className="flex items-center justify-center space-x-1 xl:space-x-2 flex-wrap">
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+            <div className="hidden lg:flex flex-1 justify-center px-2">
+              <NavigationMenu className="w-full max-w-none">
+                <NavigationMenuList className="flex items-center justify-center space-x-0 flex-nowrap w-full">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       Startup
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -55,8 +54,8 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       Registrations
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -89,8 +88,8 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       Trademark
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -111,8 +110,8 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       GST
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -133,8 +132,8 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       Income Tax
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -151,8 +150,8 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       MCA
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -169,8 +168,8 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuTrigger className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap h-auto">
                       Compliance
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -187,20 +186,20 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap">
                       Consultation
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap">
                       Guides
                     </NavigationMenuLink>
                   </NavigationMenuItem>
 
-                  <NavigationMenuItem>
-                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 xl:px-3 py-2 text-xs xl:text-sm font-medium whitespace-nowrap">
+                  <NavigationMenuItem className="px-1">
+                    <NavigationMenuLink href="#" className="text-gray-700 hover:text-blue-600 px-2 py-2 text-xs font-medium whitespace-nowrap">
                       About Us
                     </NavigationMenuLink>
                   </NavigationMenuItem>
@@ -209,8 +208,8 @@ const Header = () => {
             </div>
 
             {/* Right side actions */}
-            <div className="flex items-center space-x-2 lg:space-x-3 flex-shrink-0 min-w-0">
-              <Button variant="ghost" size="sm" className="hidden md:flex text-xs lg:text-sm px-2 lg:px-3">
+            <div className="flex items-center space-x-2 flex-shrink-0 min-w-[200px] justify-end px-2">
+              <Button variant="ghost" size="sm" className="hidden md:flex text-xs px-2">
                 <Search className="w-4 h-4 mr-1" />
                 Search
               </Button>
@@ -219,15 +218,15 @@ const Header = () => {
                 onClick={() => setIsCartOpen(true)}
                 className="relative p-2 text-gray-600 hover:text-blue-600"
               >
-                <ShoppingCart className="w-5 lg:w-6 h-5 lg:h-6" />
+                <ShoppingCart className="w-5 h-5" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 lg:w-5 h-4 lg:h-5 flex items-center justify-center text-xs">
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
                     {totalItems}
                   </span>
                 )}
               </button>
 
-              <Button className="bg-blue-600 hover:bg-blue-700 text-white text-xs lg:text-sm px-3 lg:px-4">
+              <Button className="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3">
                 Login
               </Button>
 
