@@ -1,12 +1,18 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Checkbox } from '@/components/ui/checkbox';
+import { toast } from "@/components/ui/use-toast";
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +23,8 @@ const Signup = () => {
     confirmPassword: '',
     agreeToTerms: false,
   });
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -26,15 +34,57 @@ const Signup = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle signup logic here
-    console.log('Signup attempt:', formData);
+    if (!formData.agreeToTerms) {
+      toast({
+        title: "Agreement required",
+        description: "You must agree to the Terms of Service and Privacy Policy to sign up.",
+        variant: "destructive"
+      });
+      return;
+    }
+    if (formData.password !== formData.confirmPassword) {
+      toast({
+        title: "Password mismatch",
+        description: "The passwords do not match.",
+        variant: "destructive"
+      });
+      return;
+    }
+    setLoading(true);
+    const { error } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      options: {
+        data: {
+          first_name: formData.firstName,
+          last_name: formData.lastName
+        }
+      }
+    });
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Signup failed",
+        description: error.message,
+        variant: "destructive"
+      });
+    } else {
+      toast({
+        title: "Signup successful",
+        description: "Account created! Please check your email for a confirmation link.",
+      });
+      navigate("/dashboard");
+    }
   };
 
-  const handleSocialSignup = (provider: string) => {
-    console.log(`Signup with ${provider}`);
-    // Handle social signup logic here
+  // Social signup placeholder
+  const handleSocialSignup = async (provider: string) => {
+    toast({
+      title: "Social signup not yet set up",
+      description: `This must be enabled in the Supabase dashboard.`
+    });
   };
 
   return (
@@ -70,7 +120,6 @@ const Signup = () => {
                 />
               </div>
             </div>
-            
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -81,9 +130,9 @@ const Signup = () => {
                 value={formData.email}
                 onChange={handleChange}
                 required
+                autoComplete="username"
               />
             </div>
-            
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
               <Input
@@ -94,9 +143,9 @@ const Signup = () => {
                 value={formData.password}
                 onChange={handleChange}
                 required
+                autoComplete="new-password"
               />
             </div>
-
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Confirm Password</Label>
               <Input
@@ -107,9 +156,9 @@ const Signup = () => {
                 value={formData.confirmPassword}
                 onChange={handleChange}
                 required
+                autoComplete="new-password"
               />
             </div>
-
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="agreeToTerms"
@@ -130,12 +179,10 @@ const Signup = () => {
                 </Link>
               </Label>
             </div>
-
-            <Button type="submit" className="w-full gradient-bg text-white">
-              Create Account
+            <Button type="submit" className="w-full gradient-bg text-white" disabled={loading}>
+              {loading ? "Creating Account..." : "Create Account"}
             </Button>
           </form>
-
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
@@ -144,7 +191,6 @@ const Signup = () => {
               <span className="bg-white px-2 text-gray-500">Or continue with</span>
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-3">
             <Button
               variant="outline"
@@ -159,7 +205,6 @@ const Signup = () => {
               </svg>
               Google
             </Button>
-
             <Button
               variant="outline"
               onClick={() => handleSocialSignup('facebook')}
@@ -171,7 +216,6 @@ const Signup = () => {
               Facebook
             </Button>
           </div>
-
           <div className="grid grid-cols-2 gap-3">
             <Button
               variant="outline"
@@ -183,7 +227,6 @@ const Signup = () => {
               </svg>
               Apple
             </Button>
-
             <Button
               variant="outline"
               onClick={() => handleSocialSignup('amazon')}
@@ -195,7 +238,6 @@ const Signup = () => {
               Amazon
             </Button>
           </div>
-
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Already have an account?{' '}

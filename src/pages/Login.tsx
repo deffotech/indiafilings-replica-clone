@@ -1,25 +1,53 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { toast } from "@/components/ui/use-toast";
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL as string;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY as string;
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle login logic here
-    console.log('Login attempt:', { email, password });
+    setLoading(true);
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    setLoading(false);
+    if (error) {
+      toast({
+        title: "Login failed",
+        description: error.message,
+        variant: "destructive"
+      });
+    } else {
+      toast({
+        title: "Login successful",
+        description: "Welcome back!",
+      });
+      navigate("/dashboard");
+    }
   };
 
-  const handleSocialLogin = (provider: string) => {
-    console.log(`Login with ${provider}`);
-    // Handle social login logic here
+  // Social login placeholders: implement when social providers are set up in Supabase dashboard.
+  const handleSocialLogin = async (provider: string) => {
+    toast({
+      title: "Social login not yet set up",
+      description: `This must be enabled in the Supabase dashboard.`
+    });
   };
 
   return (
@@ -40,9 +68,9 @@ const Login = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="username"
               />
             </div>
-            
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
               <Input
@@ -52,14 +80,13 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="current-password"
               />
             </div>
-
-            <Button type="submit" className="w-full gradient-bg text-white">
-              Sign In
+            <Button type="submit" className="w-full gradient-bg text-white" disabled={loading}>
+              {loading ? "Signing In..." : "Sign In"}
             </Button>
           </form>
-
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <Separator className="w-full" />
@@ -68,7 +95,6 @@ const Login = () => {
               <span className="bg-white px-2 text-gray-500">Or continue with</span>
             </div>
           </div>
-
           <div className="grid grid-cols-2 gap-3">
             <Button
               variant="outline"
@@ -83,7 +109,6 @@ const Login = () => {
               </svg>
               Google
             </Button>
-
             <Button
               variant="outline"
               onClick={() => handleSocialLogin('facebook')}
@@ -95,7 +120,6 @@ const Login = () => {
               Facebook
             </Button>
           </div>
-
           <div className="grid grid-cols-2 gap-3">
             <Button
               variant="outline"
@@ -107,7 +131,6 @@ const Login = () => {
               </svg>
               Apple
             </Button>
-
             <Button
               variant="outline"
               onClick={() => handleSocialLogin('amazon')}
@@ -119,7 +142,6 @@ const Login = () => {
               Amazon
             </Button>
           </div>
-
           <div className="text-center">
             <p className="text-sm text-gray-600">
               Don't have an account?{' '}
